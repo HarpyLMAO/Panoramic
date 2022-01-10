@@ -11,7 +11,8 @@ import me.harpylmao.managers.model.Model;
  * all credits reserved
  */
 
-public class MongoRepositoryModel<O extends Model> implements ObjectRepository<O> {
+public class MongoRepositoryModel<O extends Model>
+  implements ObjectRepository<O> {
 
   private MongoCollection<O> collection;
 
@@ -32,9 +33,9 @@ public class MongoRepositoryModel<O extends Model> implements ObjectRepository<O
   @Override
   public void save(O model) {
     collection.replaceOne(
-            Filters.eq("_id", model.getId()),
-            model,
-            new ReplaceOptions().upsert(true)
+      Filters.eq("_id", model.getId()),
+      model,
+      new ReplaceOptions().upsert(true)
     );
   }
 }

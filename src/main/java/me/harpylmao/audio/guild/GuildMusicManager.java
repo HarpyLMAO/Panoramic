@@ -7,28 +7,30 @@ import me.harpylmao.audio.TrackScheduler;
 import net.dv8tion.jda.api.entities.Guild;
 
 public class GuildMusicManager {
-	private AudioPlayer audioPlayer;
-	private TrackScheduler trackScheduler;
-	private AudioSendProvider audioSendProvider;
 
-	public GuildMusicManager(MusicManager guildAudioManager, Guild guild) {
-		this.audioPlayer = guildAudioManager.getPlayerManager().createPlayer();
+  private AudioPlayer audioPlayer;
+  private TrackScheduler trackScheduler;
+  private AudioSendProvider audioSendProvider;
 
-		this.trackScheduler = new TrackScheduler(this.audioPlayer, guildAudioManager, guild);
-		this.audioSendProvider = new AudioSendProvider(audioPlayer);
+  public GuildMusicManager(MusicManager guildAudioManager, Guild guild) {
+    this.audioPlayer = guildAudioManager.getPlayerManager().createPlayer();
 
-		this.audioPlayer.addListener(this.trackScheduler);
-	}
+    this.trackScheduler =
+      new TrackScheduler(this.audioPlayer, guildAudioManager, guild);
+    this.audioSendProvider = new AudioSendProvider(audioPlayer);
 
-	public AudioPlayer getAudioPlayer() {
-		return audioPlayer;
-	}
+    this.audioPlayer.addListener(this.trackScheduler);
+  }
 
-	public TrackScheduler getTrackScheduler() {
-		return trackScheduler;
-	}
+  public AudioPlayer getAudioPlayer() {
+    return audioPlayer;
+  }
 
-	public AudioSendProvider getAudioSendProvider() {
-		return audioSendProvider;
-	}
+  public TrackScheduler getTrackScheduler() {
+    return trackScheduler;
+  }
+
+  public AudioSendProvider getAudioSendProvider() {
+    return audioSendProvider;
+  }
 }

@@ -11,36 +11,78 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class ClearCommand implements BaseCommand {
 
-    @Override
-    public void execute(CommandEvent command, TextChannel textChannel, Member member, String[] args, GuildMessageReceivedEvent event) {
-        MusicManager musicManager = Bot.getInstance().getGuildAudioManager();
-        if (member == null || member.getVoiceState() == null || !member.getVoiceState().inVoiceChannel() || member.getVoiceState().getChannel() == null) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Please connect to a voice channel first!").build()).queue();
-            return;
-        }
-
-        if (musicManager.getGuildAudio(event.getGuild()).getTrackScheduler().getTrackQueue().size() == 0) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("There are no songs to clear.").build()).queue();
-            return;
-        }
-
-        musicManager.getGuildAudio(event.getGuild()).getTrackScheduler().clearQueue();
-
-        textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("You have cleared the queue!").build()).queue();
+  @Override
+  public void execute(
+    CommandEvent command,
+    TextChannel textChannel,
+    Member member,
+    String[] args,
+    GuildMessageReceivedEvent event
+  ) {
+    MusicManager musicManager = Bot.getInstance().getGuildAudioManager();
+    if (
+      member == null ||
+      member.getVoiceState() == null ||
+      !member.getVoiceState().inVoiceChannel() ||
+      member.getVoiceState().getChannel() == null
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("Please connect to a voice channel first!")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String usage() {
-        return "/clear";
+    if (
+      musicManager
+        .getGuildAudio(event.getGuild())
+        .getTrackScheduler()
+        .getTrackQueue()
+        .size() ==
+      0
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("There are no songs to clear.")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String getName() {
-        return "clear";
-    }
+    musicManager
+      .getGuildAudio(event.getGuild())
+      .getTrackScheduler()
+      .clearQueue();
 
-    @Override
-    public String category() {
-        return "music";
-    }
+    textChannel
+      .sendMessageEmbeds(
+        new EmbedBuilder()
+          .setColor(Bot.getInstance().getPanoramic().getColorColored())
+          .setDescription("You have cleared the queue!")
+          .build()
+      )
+      .queue();
+  }
+
+  @Override
+  public String usage() {
+    return "/clear";
+  }
+
+  @Override
+  public String getName() {
+    return "clear";
+  }
+
+  @Override
+  public String category() {
+    return "music";
+  }
 }

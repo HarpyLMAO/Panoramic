@@ -1,7 +1,9 @@
 package me.harpylmao.managers.mongo;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
@@ -26,8 +28,10 @@ public class MongoConnector {
 
   @Getter
   private MongoClient mongoClient;
+
   @Getter
   private MongoClientURI mongoClientURI;
+
   @Getter
   private MongoDatabase mongoDatabase;
 
@@ -37,13 +41,20 @@ public class MongoConnector {
 
   public void load() {
     ObjectMapper objectMapper = this.createObjectMapper();
-    CodecRegistry codecRegistry = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
-            CodecRegistries.fromProviders(new JacksonCodecProvider(objectMapper)));
+    CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
+      MongoClient.getDefaultCodecRegistry(),
+      CodecRegistries.fromProviders(new JacksonCodecProvider(objectMapper))
+    );
 
-    MongoClientOptions.Builder options = MongoClientOptions.builder()
-            .codecRegistry(codecRegistry);
+    MongoClientOptions.Builder options = MongoClientOptions
+      .builder()
+      .codecRegistry(codecRegistry);
 
-    this.mongoClientURI = new MongoClientURI("mongodb+srv://harpylmao:tuputamadre02@cluster0.pmywd.mongodb.net/panoramic?retryWrites=true&w=majority", options);
+    this.mongoClientURI =
+      new MongoClientURI(
+        "mongodb+srv://harpylmao:tuputamadre02@cluster0.pmywd.mongodb.net/panoramic?retryWrites=true&w=majority",
+        options
+      );
     this.mongoClient = new MongoClient(mongoClientURI);
 
     this.mongoDatabase = mongoClient.getDatabase("panoramic");
@@ -52,8 +63,12 @@ public class MongoConnector {
   public ObjectMapper createObjectMapper() {
     ObjectMapper mapper = ObjectMapperFactory.createObjectMapper();
     mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+    mapper.setVisibility(
+      VisibilityChecker.Std
+        .defaultInstance()
+        .withFieldVisibility(JsonAutoDetect.Visibility.ANY)
+    );
     mapper.registerModule(new Jdk8Module());
     return mapper;
   }
-
 }

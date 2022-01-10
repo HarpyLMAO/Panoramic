@@ -10,33 +10,57 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class LeaveCommand implements BaseCommand {
 
-    @Override
-    public void execute(CommandEvent command, TextChannel textChannel, Member member, String[] args, GuildMessageReceivedEvent event) {
-        if ((event.getMember() == null) ||
-                (event.getMember().getVoiceState() == null) ||
-                !event.getMember().getVoiceState().inVoiceChannel() ||
-                (event.getMember().getVoiceState().getChannel() == null)) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("You are not in a voice channel!").build()).queue();
-            return;
-        }
-
-        Bot.getInstance().getGuildAudioManager().leaveVoiceChannel(event.getGuild());
-        textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Left voice channel!").build()).queue();
+  @Override
+  public void execute(
+    CommandEvent command,
+    TextChannel textChannel,
+    Member member,
+    String[] args,
+    GuildMessageReceivedEvent event
+  ) {
+    if (
+      (event.getMember() == null) ||
+      (event.getMember().getVoiceState() == null) ||
+      !event.getMember().getVoiceState().inVoiceChannel() ||
+      (event.getMember().getVoiceState().getChannel() == null)
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("You are not in a voice channel!")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String category() {
-        return "music";
-    }
+    Bot
+      .getInstance()
+      .getGuildAudioManager()
+      .leaveVoiceChannel(event.getGuild());
+    textChannel
+      .sendMessageEmbeds(
+        new EmbedBuilder()
+          .setColor(Bot.getInstance().getPanoramic().getColorColored())
+          .setDescription("Left voice channel!")
+          .build()
+      )
+      .queue();
+  }
 
-    @Override
-    public String usage() {
-        return "USAGE: \n" +
-                " - /leave";
-    }
+  @Override
+  public String category() {
+    return "music";
+  }
 
-    @Override
-    public String getName() {
-        return "leave";
-    }
+  @Override
+  public String usage() {
+    return "USAGE: \n" + " - /leave";
+  }
+
+  @Override
+  public String getName() {
+    return "leave";
+  }
 }

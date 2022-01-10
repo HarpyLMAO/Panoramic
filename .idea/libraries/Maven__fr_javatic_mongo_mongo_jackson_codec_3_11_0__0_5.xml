@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fr.javatic.mongo:mongo-jackson-codec:3.11.0__0.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/javatic/mongo/mongo-jackson-codec/3.11.0__0.5/mongo-jackson-codec-3.11.0__0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/javatic/mongo/mongo-jackson-codec/3.11.0__0.5/mongo-jackson-codec-3.11.0__0.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fr/javatic/mongo/mongo-jackson-codec/3.11.0__0.5/mongo-jackson-codec-3.11.0__0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

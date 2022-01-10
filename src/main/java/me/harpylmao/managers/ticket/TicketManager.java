@@ -16,13 +16,13 @@ import me.harpylmao.managers.repository.ObjectRepository;
 @Getter
 public class TicketManager {
 
-    private ObjectRepository<Ticket> ticketObjectRepository;
+  private ObjectRepository<Ticket> ticketObjectRepository;
 
-    public TicketManager(MongoDatabase mongoDatabase) {
-        MongoCollection<Ticket> collection = mongoDatabase.getCollection(
-                "tickets",
-                Ticket.class
-        );
-        this.ticketObjectRepository = new MongoRepositoryModel<>(collection);
-    }
+  public TicketManager(MongoDatabase mongoDatabase) {
+    MongoCollection<Ticket> collection = mongoDatabase.getCollection(
+      "tickets",
+      Ticket.class
+    );
+    this.ticketObjectRepository = new MongoRepositoryModel<>(collection);
+  }
 }

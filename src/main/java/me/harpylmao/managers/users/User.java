@@ -1,14 +1,15 @@
 package me.harpylmao.managers.users;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.beans.ConstructorProperties;
 import lombok.Getter;
 import lombok.Setter;
 import me.harpylmao.Bot;
 import me.harpylmao.managers.model.Model;
+import me.harpylmao.utils.Cooldown;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
-import java.beans.ConstructorProperties;
 
 /*
     Author: HarpyLMAO.
@@ -21,57 +22,70 @@ import java.beans.ConstructorProperties;
 @Setter
 public class User implements Model {
 
-    private final String id;
+  private final String id;
 
-    private int economy;
+  private int economy;
 
-    public User(String id) {
-        this.id = id;
-    }
+  private Cooldown workCooldown;
 
-    @ConstructorProperties({
-            "id",
-            "economy"
-    })
-    public User(
-            String id,
-            int economy
-    ) {
-        this(id);
-        this.economy = economy;
+  public User(String id) {
+    this.id = id;
+  }
+
+  @ConstructorProperties({ "id", "economy", "workCooldown" })
+  public User(String id, int economy, Cooldown workCooldown) {
+    this(id);
+    this.economy = economy;
+    this.workCooldown = new Cooldown(0);
+  }
+
+  @Override
+  public String getId() {
+    return id;
+  }
+
+  public static class UserListener extends ListenerAdapter {
+
+    @Override
+    public void onReady(ReadyEvent event) {
+      event
+        .getJDA()
+        .getUsers()
+        .forEach(users -> {
+          event
+            .getJDA()
+            .retrieveUserById(users.getId())
+            .queue(discordUser -> {
+              User user = Bot
+                .getInstance()
+                .getUserManager()
+                .getUserObjectRepository()
+                .find(discordUser.getId());
+
+              if (user == null) {
+                user = new User(discordUser.getId());
+                Bot.getInstance().saveUser(user);
+                System.out.println("user created: " + discordUser.getName());
+              }
+            });
+        });
     }
 
     @Override
-    public String getId() {
-        return id;
+    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+      User user = Bot
+        .getInstance()
+        .getUserManager()
+        .getUserObjectRepository()
+        .find(event.getMember().getId());
+
+      if (user == null) {
+        user = new User(event.getMember().getId());
+        Bot.getInstance().saveUser(user);
+        System.out.println(
+          "user created: " + event.getMember().getUser().getName()
+        );
+      }
     }
-
-    public static class UserListener extends ListenerAdapter {
-
-        @Override
-        public void onReady(ReadyEvent event) {
-            event.getJDA().getUsers().forEach(users -> {
-                event.getJDA().retrieveUserById(users.getId()).queue(discordUser -> {
-                    User user = Bot.getInstance().getUserManager().getUserObjectRepository().find(discordUser.getId());
-
-                    if (user == null) {
-                        user = new User(discordUser.getId());
-                        Bot.getInstance().saveUser(user);
-                        System.out.println("user created: " + discordUser.getName());
-                    }
-                });
-            });
-        }
-
-        @Override
-        public void onGuildMemberJoin(GuildMemberJoinEvent event) {
-            User user = Bot.getInstance().getUserManager().getUserObjectRepository().find(event.getMember().getId());
-
-            if (user == null) {
-                user = new User(event.getMember().getId());
-                Bot.getInstance().saveUser(user);
-                System.out.println("user created: " + event.getMember().getUser().getName());
-            }
-        }
-    }
+  }
 }

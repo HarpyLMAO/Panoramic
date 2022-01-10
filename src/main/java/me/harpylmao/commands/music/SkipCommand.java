@@ -10,41 +10,98 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class SkipCommand implements BaseCommand {
 
-    @Override
-    public void execute(CommandEvent command, TextChannel textChannel, Member member, String[] args, GuildMessageReceivedEvent event) {
-        if (event.getMember() == null || event.getMember().getVoiceState() == null || !event.getMember().getVoiceState().inVoiceChannel() || event.getMember().getVoiceState().getChannel() == null) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Skipped to the next song!").build()).queue();
-            return;
-        }
-
-        if (member == null || member.getVoiceState() == null || !member.getVoiceState().inVoiceChannel() || member.getVoiceState().getChannel() == null) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Please use `/join` first!").build()).queue();
-            return;
-        }
-
-        if (Bot.getInstance().getGuildAudioManager().getGuildAudio(event.getGuild()).getTrackScheduler().getTrackQueue().size() == 0) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("There are no songs playing.").build()).queue();
-            return;
-        }
-
-        textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Skipped to the next song.").build()).queue();
-
-        Bot.getInstance().getGuildAudioManager().getGuildAudio(event.getGuild()).getTrackScheduler().skip();
+  @Override
+  public void execute(
+    CommandEvent command,
+    TextChannel textChannel,
+    Member member,
+    String[] args,
+    GuildMessageReceivedEvent event
+  ) {
+    if (
+      event.getMember() == null ||
+      event.getMember().getVoiceState() == null ||
+      !event.getMember().getVoiceState().inVoiceChannel() ||
+      event.getMember().getVoiceState().getChannel() == null
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("Skipped to the next song!")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String category() {
-        return "music";
+    if (
+      member == null ||
+      member.getVoiceState() == null ||
+      !member.getVoiceState().inVoiceChannel() ||
+      member.getVoiceState().getChannel() == null
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("Please use `/join` first!")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String usage() {
-        return "USAGE: \n" +
-                " - /skip";
+    if (
+      Bot
+        .getInstance()
+        .getGuildAudioManager()
+        .getGuildAudio(event.getGuild())
+        .getTrackScheduler()
+        .getTrackQueue()
+        .size() ==
+      0
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("There are no songs playing.")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String getName() {
-        return "skip";
-    }
+    textChannel
+      .sendMessageEmbeds(
+        new EmbedBuilder()
+          .setColor(Bot.getInstance().getPanoramic().getColorColored())
+          .setDescription("Skipped to the next song.")
+          .build()
+      )
+      .queue();
+
+    Bot
+      .getInstance()
+      .getGuildAudioManager()
+      .getGuildAudio(event.getGuild())
+      .getTrackScheduler()
+      .skip();
+  }
+
+  @Override
+  public String category() {
+    return "music";
+  }
+
+  @Override
+  public String usage() {
+    return "USAGE: \n" + " - /skip";
+  }
+
+  @Override
+  public String getName() {
+    return "skip";
+  }
 }

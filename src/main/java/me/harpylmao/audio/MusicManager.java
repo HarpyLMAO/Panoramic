@@ -12,6 +12,8 @@ import com.sedmelluq.discord.lavaplayer.source.soundcloud.SoundCloudAudioSourceM
 import com.sedmelluq.discord.lavaplayer.source.twitch.TwitchStreamAudioSourceManager;
 import com.sedmelluq.discord.lavaplayer.source.vimeo.VimeoAudioSourceManager;
 import com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioSourceManager;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import me.harpylmao.Bot;
 import me.harpylmao.audio.factories.SearchFactory;
@@ -28,169 +30,281 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class MusicManager {
-	private Logger logger = LoggerFactory.getLogger(MusicManager.class);
 
-	private AudioPlayerManager playerManager;
-	private Map<Long, GuildMusicManager> guildMusicManager;
+  private Logger logger = LoggerFactory.getLogger(MusicManager.class);
 
-	private Bot panoramic;
+  private AudioPlayerManager playerManager;
+  private Map<Long, GuildMusicManager> guildMusicManager;
 
-	public MusicManager(Bot panoramic) {
-		this.panoramic = panoramic;
+  private Bot panoramic;
 
-		this.logger.info("Loading AudioManager...");
-		this.guildMusicManager = new HashMap<>();
-		this.playerManager = new DefaultAudioPlayerManager();
+  public MusicManager(Bot panoramic) {
+    this.panoramic = panoramic;
 
-		this.playerManager.getConfiguration().setOpusEncodingQuality(AudioConfiguration.OPUS_QUALITY_MAX);
-		this.playerManager.getConfiguration().setResamplingQuality(AudioConfiguration.ResamplingQuality.HIGH);
-		this.playerManager.getConfiguration().setFilterHotSwapEnabled(true);
+    this.logger.info("Loading AudioManager...");
+    this.guildMusicManager = new HashMap<>();
+    this.playerManager = new DefaultAudioPlayerManager();
 
-		AudioSourceManagers.registerRemoteSources(this.playerManager);
-		AudioSourceManagers.registerLocalSource(this.playerManager);
+    this.playerManager.getConfiguration()
+      .setOpusEncodingQuality(AudioConfiguration.OPUS_QUALITY_MAX);
+    this.playerManager.getConfiguration()
+      .setResamplingQuality(AudioConfiguration.ResamplingQuality.HIGH);
+    this.playerManager.getConfiguration().setFilterHotSwapEnabled(true);
 
-		this.playerManager.registerSourceManager(new BeamAudioSourceManager());
-		this.playerManager.registerSourceManager(new HttpAudioSourceManager());
-		this.playerManager.registerSourceManager(new VimeoAudioSourceManager());
-		this.playerManager.registerSourceManager(new GetyarnAudioSourceManager());
-		this.playerManager.registerSourceManager(new YoutubeAudioSourceManager());
-		this.playerManager.registerSourceManager(new BandcampAudioSourceManager());
-		this.playerManager.registerSourceManager(new TwitchStreamAudioSourceManager());
-		this.playerManager.registerSourceManager(SoundCloudAudioSourceManager.createDefault());
+    AudioSourceManagers.registerRemoteSources(this.playerManager);
+    AudioSourceManagers.registerLocalSource(this.playerManager);
 
-		this.logger.info("Loaded AudioManager!");
-	}
+    this.playerManager.registerSourceManager(new BeamAudioSourceManager());
+    this.playerManager.registerSourceManager(new HttpAudioSourceManager());
+    this.playerManager.registerSourceManager(new VimeoAudioSourceManager());
+    this.playerManager.registerSourceManager(new GetyarnAudioSourceManager());
+    this.playerManager.registerSourceManager(new YoutubeAudioSourceManager());
+    this.playerManager.registerSourceManager(new BandcampAudioSourceManager());
+    this.playerManager.registerSourceManager(
+        new TwitchStreamAudioSourceManager()
+      );
+    this.playerManager.registerSourceManager(
+        SoundCloudAudioSourceManager.createDefault()
+      );
 
-	/**
-	 * Get's Guild Audio Manger.
-	 *
-	 * @param guild Guild to get AudioManager.
-	 * @return GuildMusicManager.
-	 */
-	public synchronized GuildMusicManager getGuildAudio(Guild guild) {
-		return this.guildMusicManager.computeIfAbsent(guild.getIdLong(), (guildAudio) -> {
-			GuildMusicManager guildMusicManager = new GuildMusicManager(this, guild);
+    this.logger.info("Loaded AudioManager!");
+  }
 
-			guild.getAudioManager().setSendingHandler(guildMusicManager.getAudioSendProvider());
+  /**
+   * Get's Guild Audio Manger.
+   *
+   * @param guild Guild to get AudioManager.
+   * @return GuildMusicManager.
+   */
+  public synchronized GuildMusicManager getGuildAudio(Guild guild) {
+    return this.guildMusicManager.computeIfAbsent(
+        guild.getIdLong(),
+        guildAudio -> {
+          GuildMusicManager guildMusicManager = new GuildMusicManager(
+            this,
+            guild
+          );
 
-			return guildMusicManager;
-		});
-	}
+          guild
+            .getAudioManager()
+            .setSendingHandler(guildMusicManager.getAudioSendProvider());
 
-	/**
-	 * Join's Voice Chanel and set's log channel.
-	 *
-	 * @param voiceChannel   Voice Channel.
-	 * @param messageChannel Message Channel.
-	 * @param guild          Guild.
-	 */
-	public void joinVoiceChannel(VoiceChannel voiceChannel, TextChannel messageChannel, Guild guild, Member member) {
-		AudioManager audioManager = guild.getAudioManager();
-		GuildMusicManager guildMusicManager = getGuildAudio(guild);
+          return guildMusicManager;
+        }
+      );
+  }
 
-		guildMusicManager.getTrackScheduler().setLogChannel(messageChannel);
+  /**
+   * Join's Voice Chanel and set's log channel.
+   *
+   * @param voiceChannel   Voice Channel.
+   * @param messageChannel Message Channel.
+   * @param guild          Guild.
+   */
+  public void joinVoiceChannel(
+    VoiceChannel voiceChannel,
+    TextChannel messageChannel,
+    Guild guild,
+    Member member
+  ) {
+    AudioManager audioManager = guild.getAudioManager();
+    GuildMusicManager guildMusicManager = getGuildAudio(guild);
 
-		if (voiceChannel instanceof StageChannel) {
-			try {
-				StageChannel stageChannel = (StageChannel) voiceChannel;
-				if (stageChannel.getStageInstance() == null) {
-					stageChannel.createStageInstance("Music").queue();
-				}
-				guild.requestToSpeak();
-				audioManager.openAudioConnection(stageChannel);
-			} catch (Exception e) {
-				messageChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Cannot join stage channel.").build()).queue();
-			}
-			return;
-		}
+    guildMusicManager.getTrackScheduler().setLogChannel(messageChannel);
 
-		audioManager.openAudioConnection(voiceChannel);
-	}
+    if (voiceChannel instanceof StageChannel) {
+      try {
+        StageChannel stageChannel = (StageChannel) voiceChannel;
+        if (stageChannel.getStageInstance() == null) {
+          stageChannel.createStageInstance("Music").queue();
+        }
+        guild.requestToSpeak();
+        audioManager.openAudioConnection(stageChannel);
+      } catch (Exception e) {
+        messageChannel
+          .sendMessageEmbeds(
+            new EmbedBuilder()
+              .setColor(Bot.getInstance().getPanoramic().getColorColored())
+              .setDescription("Cannot join stage channel.")
+              .build()
+          )
+          .queue();
+      }
+      return;
+    }
 
-	/**
-	 * Leave's Voice Channel.
-	 *
-	 * @param guild Guild
-	 */
-	public void leaveVoiceChannel(Guild guild) {
-		guild.getAudioManager().closeAudioConnection();
-		this.getGuildAudio(guild).getTrackScheduler().clearQueue();
-	}
+    audioManager.openAudioConnection(voiceChannel);
+  }
 
-	/**
-	 * Loads and plays a track by it's URL.
-	 *
-	 * @param event       CommandEvent for getting details.
-	 * @param trackURL    The URL of the track you want to play.
-	 * @param sendMessage Sends message if true.
-	 */
-	public void loadAndPlay(CommandEvent event, String trackURL, boolean sendMessage) {
-		GuildMusicManager musicManager = getGuildAudio(event.getGuild());
-		Member member = event.getMember();
+  /**
+   * Leave's Voice Channel.
+   *
+   * @param guild Guild
+   */
+  public void leaveVoiceChannel(Guild guild) {
+    guild.getAudioManager().closeAudioConnection();
+    this.getGuildAudio(guild).getTrackScheduler().clearQueue();
+  }
 
-		if (member == null || member.getVoiceState() == null || !member.getVoiceState().inVoiceChannel() || member.getVoiceState().getChannel() == null) {
-			event.getChannel().sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Please connect to a voice channel first!").build()).queue();
-			return;
-		}
+  /**
+   * Loads and plays a track by it's URL.
+   *
+   * @param event       CommandEvent for getting details.
+   * @param trackURL    The URL of the track you want to play.
+   * @param sendMessage Sends message if true.
+   */
+  public void loadAndPlay(
+    CommandEvent event,
+    String trackURL,
+    boolean sendMessage
+  ) {
+    GuildMusicManager musicManager = getGuildAudio(event.getGuild());
+    Member member = event.getMember();
 
-		this.joinVoiceChannel(member.getVoiceState().getChannel(), event.getChannel(), event.getGuild(), event.getMember());
+    if (
+      member == null ||
+      member.getVoiceState() == null ||
+      !member.getVoiceState().inVoiceChannel() ||
+      member.getVoiceState().getChannel() == null
+    ) {
+      event
+        .getChannel()
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("Please connect to a voice channel first!")
+            .build()
+        )
+        .queue();
+      return;
+    }
 
-		musicManager.getTrackScheduler().setLogChannel(event.getChannel());
+    this.joinVoiceChannel(
+        member.getVoiceState().getChannel(),
+        event.getChannel(),
+        event.getGuild(),
+        event.getMember()
+      );
 
-		TrackScheduler trackScheduler = musicManager.getTrackScheduler();
-		String finalTrackURL = new SearchFactory(trackURL, event , trackScheduler, playerManager, panoramic).search();
+    musicManager.getTrackScheduler().setLogChannel(event.getChannel());
 
-		if (finalTrackURL == null) {
-			event.getChannel().sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("An error occurred!").build()).queue();
-			return;
-		}
+    TrackScheduler trackScheduler = musicManager.getTrackScheduler();
+    String finalTrackURL = new SearchFactory(
+      trackURL,
+      event,
+      trackScheduler,
+      playerManager,
+      panoramic
+    )
+      .search();
 
-		/* Spotify Playlist */
-		if (finalTrackURL.startsWith("Spotify.PLAYLIST ")) {
-			event.getChannel().sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Loading playlist `" + finalTrackURL.replace("Spotify.PLAYLIST ","") + "`").build()).queue();
-			return;
-		}
+    if (finalTrackURL == null) {
+      event
+        .getChannel()
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("An error occurred!")
+            .build()
+        )
+        .queue();
+      return;
+    }
 
-		/* Spotify Album */
-		if (finalTrackURL.startsWith("Spotify.ALBUM ")) {
-			event.getChannel().sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Loading album `" + finalTrackURL.replace("Spotify.ALBUM ","") + "`").build()).queue();
-			return;
-		}
-		playerManager.loadItem(finalTrackURL, new AudioSoundLoadHandler(this.logger, member, event, sendMessage, trackScheduler, finalTrackURL));
-	}
+    /* Spotify Playlist */
+    if (finalTrackURL.startsWith("Spotify.PLAYLIST ")) {
+      event
+        .getChannel()
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription(
+              "Loading playlist `" +
+              finalTrackURL.replace("Spotify.PLAYLIST ", "") +
+              "`"
+            )
+            .build()
+        )
+        .queue();
+      return;
+    }
 
-	public AudioPlayerManager getPlayerManager() {
-		return playerManager;
-	}
+    /* Spotify Album */
+    if (finalTrackURL.startsWith("Spotify.ALBUM ")) {
+      event
+        .getChannel()
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription(
+              "Loading album `" +
+              finalTrackURL.replace("Spotify.ALBUM ", "") +
+              "`"
+            )
+            .build()
+        )
+        .queue();
+      return;
+    }
+    playerManager.loadItem(
+      finalTrackURL,
+      new AudioSoundLoadHandler(
+        this.logger,
+        member,
+        event,
+        sendMessage,
+        trackScheduler,
+        finalTrackURL
+      )
+    );
+  }
 
-	@RequiredArgsConstructor
-	public static class MusicListeners extends ListenerAdapter {
+  public AudioPlayerManager getPlayerManager() {
+    return playerManager;
+  }
 
-		private final Bot bot;
+  @RequiredArgsConstructor
+  public static class MusicListeners extends ListenerAdapter {
 
-		@Override
-		public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
-			Member eustaquioMember = event.getGuild().getMember(event.getJDA().getSelfUser());
+    private final Bot bot;
 
-			if (event.getMember().equals(eustaquioMember)) {
-				eustaquioMember.deafen(true).queue();
-			}
-		}
+    @Override
+    public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
+      Member eustaquioMember = event
+        .getGuild()
+        .getMember(event.getJDA().getSelfUser());
 
-		@Override
-		public void onGuildVoiceGuildDeafen(@NotNull GuildVoiceGuildDeafenEvent event) {
-			Member eustaquioMember = event.getGuild().getMember(event.getJDA().getSelfUser());
+      if (event.getMember().equals(eustaquioMember)) {
+        eustaquioMember.deafen(true).queue();
+      }
+    }
 
-			if (event.getMember().equals(eustaquioMember)) {
-				if (event.isGuildDeafened()) return;
+    @Override
+    public void onGuildVoiceGuildDeafen(
+      @NotNull GuildVoiceGuildDeafenEvent event
+    ) {
+      Member eustaquioMember = event
+        .getGuild()
+        .getMember(event.getJDA().getSelfUser());
 
-				bot.getGuildAudioManager().getGuildAudio(event.getGuild()).getTrackScheduler().getLogChannel().sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription(("Please do not undeafen the bot!")).build()).queue();
-				eustaquioMember.deafen(true).queue();
-			}
-		}
-	}
+      if (event.getMember().equals(eustaquioMember)) {
+        if (event.isGuildDeafened()) return;
+
+        bot
+          .getGuildAudioManager()
+          .getGuildAudio(event.getGuild())
+          .getTrackScheduler()
+          .getLogChannel()
+          .sendMessageEmbeds(
+            new EmbedBuilder()
+              .setColor(Bot.getInstance().getPanoramic().getColorColored())
+              .setDescription(("Please do not undeafen the bot!"))
+              .build()
+          )
+          .queue();
+        eustaquioMember.deafen(true).queue();
+      }
+    }
+  }
 }

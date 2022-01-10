@@ -9,5 +9,8 @@
         <module name="Panoramic" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Panoramic" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

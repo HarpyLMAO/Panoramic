@@ -12,36 +12,77 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class ResumeCommand implements BaseCommand {
 
-    @Override
-    public void execute(CommandEvent command, TextChannel textChannel, Member member, String[] args, GuildMessageReceivedEvent event) {
-        MusicManager musicManager = Bot.getInstance().getGuildAudioManager();
-        if (member == null || member.getVoiceState() == null || !member.getVoiceState().inVoiceChannel() || member.getVoiceState().getChannel() == null) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("Please connect to a voice channel first!").build()).queue();
-            return;
-        }
-
-        if (musicManager.getGuildAudio(event.getGuild()).getTrackScheduler().getTrackQueue().size() == 0) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("There are no songs playing.").build()).queue();
-            return;
-        }
-
-        TrackScheduler scheduler = musicManager.getGuildAudio(event.getGuild()).getTrackScheduler();
-        scheduler.setPaused(false);
-        textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription(":arrow_forward: Unpaused the Player!").build()).queue();
+  @Override
+  public void execute(
+    CommandEvent command,
+    TextChannel textChannel,
+    Member member,
+    String[] args,
+    GuildMessageReceivedEvent event
+  ) {
+    MusicManager musicManager = Bot.getInstance().getGuildAudioManager();
+    if (
+      member == null ||
+      member.getVoiceState() == null ||
+      !member.getVoiceState().inVoiceChannel() ||
+      member.getVoiceState().getChannel() == null
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("Please connect to a voice channel first!")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String usage() {
-        return "/resume";
+    if (
+      musicManager
+        .getGuildAudio(event.getGuild())
+        .getTrackScheduler()
+        .getTrackQueue()
+        .size() ==
+      0
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("There are no songs playing.")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String getName() {
-        return "resume";
-    }
+    TrackScheduler scheduler = musicManager
+      .getGuildAudio(event.getGuild())
+      .getTrackScheduler();
+    scheduler.setPaused(false);
+    textChannel
+      .sendMessageEmbeds(
+        new EmbedBuilder()
+          .setColor(Bot.getInstance().getPanoramic().getColorColored())
+          .setDescription(":arrow_forward: Unpaused the Player!")
+          .build()
+      )
+      .queue();
+  }
 
-    @Override
-    public String category() {
-        return "music";
-    }
+  @Override
+  public String usage() {
+    return "/resume";
+  }
+
+  @Override
+  public String getName() {
+    return "resume";
+  }
+
+  @Override
+  public String category() {
+    return "music";
+  }
 }

@@ -9,9 +9,7 @@ import me.harpylmao.managers.model.Model;
  */
 
 public interface ObjectRepository<O extends Model> {
-
   O find(String id);
   void delete(String id);
   void save(O model);
-
 }

@@ -15,13 +15,13 @@ import me.harpylmao.managers.repository.ObjectRepository;
 @Getter
 public class PanoramicManager {
 
-    private final ObjectRepository<Panoramic> panoramicObjectRepository;
+  private final ObjectRepository<Panoramic> panoramicObjectRepository;
 
-    public PanoramicManager(MongoDatabase mongoDatabase) {
-        MongoCollection<Panoramic> collection = mongoDatabase.getCollection(
-            "panoramic",
-                Panoramic.class
-        );
-        this.panoramicObjectRepository = new MongoRepositoryModel<>(collection);
-    }
+  public PanoramicManager(MongoDatabase mongoDatabase) {
+    MongoCollection<Panoramic> collection = mongoDatabase.getCollection(
+      "panoramic",
+      Panoramic.class
+    );
+    this.panoramicObjectRepository = new MongoRepositoryModel<>(collection);
+  }
 }

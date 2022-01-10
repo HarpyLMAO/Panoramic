@@ -11,29 +11,53 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class LoopCommand implements BaseCommand {
 
-    @Override
-    public void execute(CommandEvent command, TextChannel textChannel, Member member, String[] args, GuildMessageReceivedEvent event) {
-        MusicManager musicManager = Bot.getInstance().getGuildAudioManager();
-        if (musicManager.getGuildAudio(event.getGuild()) == null || musicManager.getGuildAudio(event.getGuild()).getTrackScheduler().getTrackQueue().size() == 0) {
-            textChannel.sendMessageEmbeds(new EmbedBuilder().setColor(Bot.getInstance().getPanoramic().getColorColored()).setDescription("There are no songs playing!").build()).queue();
-            return;
-        }
-
-        musicManager.getGuildAudio(event.getGuild()).getTrackScheduler().toggleLoop(command);
+  @Override
+  public void execute(
+    CommandEvent command,
+    TextChannel textChannel,
+    Member member,
+    String[] args,
+    GuildMessageReceivedEvent event
+  ) {
+    MusicManager musicManager = Bot.getInstance().getGuildAudioManager();
+    if (
+      musicManager.getGuildAudio(event.getGuild()) == null ||
+      musicManager
+        .getGuildAudio(event.getGuild())
+        .getTrackScheduler()
+        .getTrackQueue()
+        .size() ==
+      0
+    ) {
+      textChannel
+        .sendMessageEmbeds(
+          new EmbedBuilder()
+            .setColor(Bot.getInstance().getPanoramic().getColorColored())
+            .setDescription("There are no songs playing!")
+            .build()
+        )
+        .queue();
+      return;
     }
 
-    @Override
-    public String usage() {
-        return "/loop";
-    }
+    musicManager
+      .getGuildAudio(event.getGuild())
+      .getTrackScheduler()
+      .toggleLoop(command);
+  }
 
-    @Override
-    public String getName() {
-        return "loop";
-    }
+  @Override
+  public String usage() {
+    return "/loop";
+  }
 
-    @Override
-    public String category() {
-        return "music";
-    }
+  @Override
+  public String getName() {
+    return "loop";
+  }
+
+  @Override
+  public String category() {
+    return "music";
+  }
 }
