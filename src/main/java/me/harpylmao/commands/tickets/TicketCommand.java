@@ -1,10 +1,13 @@
 package me.harpylmao.commands.tickets;
 
 import me.harpylmao.Bot;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.CommandManager;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import me.harpylmao.managers.Panoramic;
 import me.harpylmao.managers.ticket.Ticket;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -15,7 +18,18 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
     Project: Panoramic
     30/12/2021 23
 */
-public class TicketCommand implements BaseCommand {
+
+@CommandParams(
+  name = "ticket",
+  category = "music",
+  usage = """
+                ***Usage:***
+                    - p.ticket opener
+                    - p.ticket logs
+                """,
+  permissions = { Permission.ADMINISTRATOR }
+)
+public class TicketCommand implements Command {
 
   @Override
   public void execute(
@@ -26,7 +40,9 @@ public class TicketCommand implements BaseCommand {
     GuildMessageReceivedEvent event
   ) {
     Panoramic panoramic = Bot.getInstance().getPanoramic();
-    if (args.length == 0) command.reply(this.usage());
+    if (args.length == 0) command.reply(
+      CommandManager.INSTANCE.getParamsMap().get(this).usage()
+    );
 
     switch (args[0]) {
       case "opener" -> {
@@ -37,24 +53,5 @@ public class TicketCommand implements BaseCommand {
         Bot.getInstance().savePanoramic(panoramic);
       }
     }
-  }
-
-  @Override
-  public String usage() {
-    return """
-                ***Usage:***
-                    - p.ticket opener
-                    - p.ticket logs
-                """;
-  }
-
-  @Override
-  public String getName() {
-    return "ticket";
-  }
-
-  @Override
-  public String category() {
-    return "main";
   }
 }

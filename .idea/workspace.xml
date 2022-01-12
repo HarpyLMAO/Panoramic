@@ -5,105 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="942ce23e-8f53-4ceb-9ec4-18431f2b2015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__club_minnced_opus_java_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__club_minnced_opus_java_natives_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_9_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_connyscode_ctils_jtrack_1_0_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_walkyst_lavaplayer_fork_1_3_94.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_neovisionaries_nv_i18n_1_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_neovisionaries_nv_websocket_client_2_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_jda_nas_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_lava_common_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_lavaplayer_1_3_75.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_lavaplayer_common_1_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_lavaplayer_ext_youtube_rotator_0_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_lavaplayer_natives_1_3_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sedmelluq_udp_queue_1_0_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_4_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_retrofit2_converter_gson_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_retrofit2_retrofit_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_undercouch_bson4jackson_2_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_javatic_mongo_mongo_jackson_codec_3_11_0__0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_dv8tion_JDA_4_3_0_339.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_iharder_base64_2_3_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_4_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_oneandone_reflections8_reflections8_0_11_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_trove4j_trove4j_3_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_client5_httpclient5_5_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_client5_httpclient5_cache_5_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_core5_httpcore5_5_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_core5_httpcore5_h2_5_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_22_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_16_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20180813.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_12_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_bson_4_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongo_java_driver_3_12_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_3_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_sync_4_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongojack_mongojack_4_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_29.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__pw_chew_jda_chewtils_command_1_20_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__pw_chew_jda_chewtils_commons_1_20_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__pw_chew_jda_chewtils_doc_1_20_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__pw_chew_jda_chewtils_examples_1_20_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__pw_chew_jda_chewtils_menu_1_20_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__pw_chew_jda_chewtils_oauth2_1_20_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__se_michaelthelin_spotify_spotify_web_api_java_6_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Panoramic.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/bet/RouletteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/games/ChessCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/games/YoutubeWatchTogetherCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/AudioSendProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/AudioSendProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/MusicManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/TrackScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/TrackScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/factories/SearchFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/factories/SearchFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/guild/GuildMusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/guild/GuildMusicManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/handlers/AudioSoundLoadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/handlers/AudioSoundLoadHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/objects/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/objects/RequestType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/objects/SpotifyType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/objects/SpotifyType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/objects/YoutubeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/objects/YoutubeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/sources/SpotifySource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/audio/sources/SpotifySource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/interfaces/CommandParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/bet/RouletteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/bet/RouletteCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/CommandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/defaults/DefaultHelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/defaults/DefaultHelpCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/handler/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/handler/CommandHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/interfaces/BaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/interfaces/BaseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/interfaces/BaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/interfaces/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/objects/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/objects/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/objects/CommandEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/objects/CommandEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/objects/CommandPreConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/command/objects/CommandPreConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/economy/EconomyCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/economy/BalCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/economy/BalCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/economy/WorkCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/economy/WorkCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/games/ChessCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/games/ChessCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/games/YoutubeWatchTogetherCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/games/YoutubeWatchTogetherCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/BackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/BackCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/BassBoostCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/BassBoostCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/ClearCommand.java" afterDir="false" />
@@ -120,41 +36,23 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/VolumeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/music/VolumeCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/tickets/TicketCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/tickets/TicketCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/users/UserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/commands/users/UserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/Panoramic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/Panoramic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/PanoramicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/PanoramicManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/mongo/MongoConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/mongo/MongoConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/repository/MongoRepositoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/repository/MongoRepositoryModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/repository/ObjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/repository/ObjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/ticket/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/ticket/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/ticket/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/ticket/TicketManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/users/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/managers/users/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/MusicUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/MusicUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/NumberUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/NumberUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/Bot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/MusicManager$MusicListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/MusicManager$MusicListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/MusicManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/MusicManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/TrackScheduler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/TrackScheduler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/TrackScheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/TrackScheduler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/factories/SearchFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/factories/SearchFactory$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/factories/SearchFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/factories/SearchFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/guild/GuildMusicManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/guild/GuildMusicManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/handlers/AudioSoundLoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/handlers/AudioSoundLoadHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/objects/RequestType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/objects/RequestType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/objects/SpotifyType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/objects/SpotifyType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/objects/YoutubeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/objects/YoutubeType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/sources/SpotifySource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/audio/sources/SpotifySource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/Cooldown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/Cooldown.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/TimeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/TimeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/harpylmao/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/bet/RouletteCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/bet/RouletteCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/CommandManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/defaults/DefaultHelpCommand$HelpCommandListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/defaults/DefaultHelpCommand$HelpCommandListeners.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/defaults/DefaultHelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/defaults/DefaultHelpCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/handler/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/handler/CommandHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/interfaces/BaseCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/interfaces/BaseCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/interfaces/BaseCommand.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/objects/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/objects/Category.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/objects/CommandEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/objects/CommandEvent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/objects/CommandPreConstructor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/command/objects/CommandPreConstructor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/economy/EconomyCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/economy/BalCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/economy/BalCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/economy/WorkCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/economy/WorkCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/games/ChessCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/games/ChessCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/games/YoutubeWatchTogetherCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/games/YoutubeWatchTogetherCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/BackCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/BackCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/BassBoostCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/BassBoostCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/ClearCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/ClearCommand.class" afterDir="false" />
@@ -171,17 +69,11 @@
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/VolumeCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/music/VolumeCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/tickets/TicketCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/tickets/TicketCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/users/UserCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/commands/users/UserCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/Panoramic$PanoramicListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/Panoramic$PanoramicListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/Panoramic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/Panoramic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/mongo/MongoConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/mongo/MongoConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/repository/MongoRepositoryModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/repository/MongoRepositoryModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/ticket/Ticket$TicketEvents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/ticket/Ticket$TicketEvents.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/ticket/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/ticket/Ticket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/users/User$UserListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/users/User$UserListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/managers/users/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Configuration$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Configuration$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Configuration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/MusicUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/MusicUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Cooldown.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Cooldown.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/TimeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/TimeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/harpylmao/utils/Utils.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +83,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Sealed Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -218,6 +112,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Bot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -248,7 +143,11 @@
       <option name="presentableId" value="Default" />
       <updated>1641837337919</updated>
       <workItem from="1641837339508" duration="5057000" />
-      <workItem from="1641846083246" duration="2209000" />
+      <workItem from="1641846083246" duration="3129000" />
+      <workItem from="1641922476492" duration="1792000" />
+      <workItem from="1641930287441" duration="6907000" />
+      <workItem from="1642004294864" duration="2999000" />
+      <workItem from="1642009548510" duration="1286000" />
     </task>
     <servers />
   </component>

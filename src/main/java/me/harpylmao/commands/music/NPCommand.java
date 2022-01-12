@@ -3,14 +3,16 @@ package me.harpylmao.commands.music;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import me.harpylmao.Bot;
 import me.harpylmao.audio.MusicManager;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class NPCommand implements BaseCommand {
+@CommandParams(name = "np", category = "music")
+public class NPCommand implements Command {
 
   @Override
   public void execute(
@@ -114,20 +116,5 @@ public class NPCommand implements BaseCommand {
         false
       );
     textChannel.sendMessageEmbeds(builder.build()).queue();
-  }
-
-  @Override
-  public String usage() {
-    return "/np";
-  }
-
-  @Override
-  public String getName() {
-    return "np";
-  }
-
-  @Override
-  public String category() {
-    return "music";
   }
 }

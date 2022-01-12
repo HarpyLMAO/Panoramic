@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 import lombok.Getter;
 import me.harpylmao.commands.command.CommandManager;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 
 /**
  * Created by Ryzeon Project: JDA-CommandAPI Date: 06/06/2021 @ 22:23 Twitter: @Ryzeon_ 😎 Github:
@@ -22,11 +23,14 @@ public class Category {
     categories.add(this);
   }
 
-  public Set<BaseCommand> getCommands() {
-    Set<BaseCommand> commands = new HashSet<>();
-    for (BaseCommand baseCommand : CommandManager.INSTANCE.getCommands()) {
-      if (!baseCommand.category().equalsIgnoreCase(name)) continue;
-      commands.add(baseCommand);
+  public Set<Command> getCommands() {
+    Set<Command> commands = new HashSet<>();
+    for (Command command : CommandManager.INSTANCE.getCommands()) {
+      CommandParams commandParams = CommandManager.INSTANCE
+        .getParamsMap()
+        .get(command);
+      if (!commandParams.category().equalsIgnoreCase(name)) continue;
+      commands.add(command);
     }
     return commands;
   }
@@ -39,9 +43,12 @@ public class Category {
   }
 
   public static Set<Category> getCategories() {
-    for (BaseCommand baseCommand : CommandManager.INSTANCE.getCommands()) {
-      if (getCategory(baseCommand.category()) != null) continue;
-      new Category(baseCommand.category());
+    for (Command command : CommandManager.INSTANCE.getCommands()) {
+      CommandParams commandParams = CommandManager.INSTANCE
+        .getParamsMap()
+        .get(command);
+      if (getCategory(commandParams.category()) != null) continue;
+      new Category(commandParams.category());
     }
     return categories;
   }

@@ -2,14 +2,16 @@ package me.harpylmao.commands.music;
 
 import me.harpylmao.Bot;
 import me.harpylmao.audio.MusicManager;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class VolumeCommand implements BaseCommand {
+@CommandParams(name = "volume", category = "music")
+public class VolumeCommand implements Command {
 
   @Override
   public void execute(
@@ -89,20 +91,5 @@ public class VolumeCommand implements BaseCommand {
           .build()
       )
       .queue();
-  }
-
-  @Override
-  public String usage() {
-    return "/volume (volume)";
-  }
-
-  @Override
-  public String getName() {
-    return "volume";
-  }
-
-  @Override
-  public String category() {
-    return "music";
   }
 }

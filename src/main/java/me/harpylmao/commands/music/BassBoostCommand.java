@@ -3,14 +3,16 @@ package me.harpylmao.commands.music;
 import com.sedmelluq.discord.lavaplayer.filter.equalizer.EqualizerFactory;
 import me.harpylmao.Bot;
 import me.harpylmao.audio.MusicManager;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class BassBoostCommand implements BaseCommand {
+@CommandParams(name = "bassboost", category = "music")
+public class BassBoostCommand implements Command {
 
   private float[] BASS_BOOST = {
     0.2f,
@@ -128,20 +130,5 @@ public class BassBoostCommand implements BaseCommand {
           .build()
       )
       .queue();
-  }
-
-  @Override
-  public String usage() {
-    return "/bassboost (amount)";
-  }
-
-  @Override
-  public String getName() {
-    return "bassboost";
-  }
-
-  @Override
-  public String category() {
-    return "music";
   }
 }

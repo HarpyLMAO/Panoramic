@@ -17,15 +17,19 @@ public class CommandEvent extends GuildMessageReceivedEvent {
 
   private final String label;
 
+  private final int cooldown;
+
   public CommandEvent(
     JDA jda,
     int responseNumber,
     Message message,
-    CommandPreConstructor commandPreConstructor
+    CommandPreConstructor commandPreConstructor,
+    int cooldown
   ) {
     super(jda, responseNumber, message);
     this.args = commandPreConstructor.getArgs();
     this.label = commandPreConstructor.getLabel();
+    this.cooldown = cooldown;
   }
 
   public void reply(Message message) {

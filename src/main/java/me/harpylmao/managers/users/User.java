@@ -1,12 +1,10 @@
 package me.harpylmao.managers.users;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.beans.ConstructorProperties;
 import lombok.Getter;
 import lombok.Setter;
 import me.harpylmao.Bot;
 import me.harpylmao.managers.model.Model;
-import me.harpylmao.utils.Cooldown;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -26,17 +24,14 @@ public class User implements Model {
 
   private int economy;
 
-  private Cooldown workCooldown;
-
   public User(String id) {
     this.id = id;
   }
 
-  @ConstructorProperties({ "id", "economy", "workCooldown" })
-  public User(String id, int economy, Cooldown workCooldown) {
+  @ConstructorProperties({ "id", "economy" })
+  public User(String id, int economy) {
     this(id);
     this.economy = economy;
-    this.workCooldown = new Cooldown(0);
   }
 
   @Override

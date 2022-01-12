@@ -2,7 +2,9 @@ package me.harpylmao.commands.bet;
 
 import java.util.Random;
 import me.harpylmao.Bot;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.CommandManager;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import me.harpylmao.managers.users.User;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -17,7 +19,16 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
     01/01/2022 20
 */
 
-public class RouletteCommand implements BaseCommand {
+@CommandParams(
+  name = "roulette",
+  category = "bet",
+  usage = """
+                **Usage:**
+                    - p.roulette <amount> | If your amount is 10 you have the probability to duplicate or lost all.
+                """,
+  cooldown = 18_000_000
+)
+public class RouletteCommand implements Command {
 
   @Override
   public void execute(
@@ -28,7 +39,7 @@ public class RouletteCommand implements BaseCommand {
     GuildMessageReceivedEvent event
   ) {
     if (args.length == 0) {
-      command.reply(this.usage());
+      command.reply(CommandManager.INSTANCE.getParamsMap().get(this).usage());
       return;
     }
 
@@ -75,23 +86,5 @@ public class RouletteCommand implements BaseCommand {
         )
         .queue();
     }
-  }
-
-  @Override
-  public String usage() {
-    return """
-                **Usage:**
-                    - p.roulette <amount> | If your amount is 10 you have the probability to duplicate or lost all.
-                """;
-  }
-
-  @Override
-  public String getName() {
-    return "roulette";
-  }
-
-  @Override
-  public String category() {
-    return "bet";
   }
 }

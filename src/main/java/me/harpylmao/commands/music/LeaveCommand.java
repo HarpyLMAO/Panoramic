@@ -1,14 +1,16 @@
 package me.harpylmao.commands.music;
 
 import me.harpylmao.Bot;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class LeaveCommand implements BaseCommand {
+@CommandParams(name = "leave", category = "music")
+public class LeaveCommand implements Command {
 
   @Override
   public void execute(
@@ -47,20 +49,5 @@ public class LeaveCommand implements BaseCommand {
           .build()
       )
       .queue();
-  }
-
-  @Override
-  public String category() {
-    return "music";
-  }
-
-  @Override
-  public String usage() {
-    return "USAGE: \n" + " - /leave";
-  }
-
-  @Override
-  public String getName() {
-    return "leave";
   }
 }

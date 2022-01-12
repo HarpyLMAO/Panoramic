@@ -1,64 +1,66 @@
 package me.harpylmao.utils;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.UUID;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import net.dv8tion.jda.api.entities.User;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@ToString
-@EqualsAndHashCode
 public class Cooldown {
 
-  @JsonProperty
+  @Getter private static Map<User, Long> timeMap;
+
   private UUID uniqueId = UUID.randomUUID();
 
-  @JsonProperty
   private long start = System.currentTimeMillis();
 
-  @JsonProperty
   private long expire;
 
-  @JsonProperty
   private boolean notified;
 
-  public Cooldown(long duration) {
+  public Cooldown() {
+    timeMap = new HashMap<>();
+  }
+
+  public Cooldown(User user, long duration) {
     this.expire = this.start + duration;
 
     if (duration == 0) {
       this.notified = true;
     }
+
+    timeMap.put(user, expire);
   }
 
-  @JsonIgnore
-  public long getPassed() {
-    return System.currentTimeMillis() - this.start;
+  public long getPassed(User user) {
+    if (timeMap.get(user) != null) {
+      return System.currentTimeMillis() - timeMap.get(user);
+    }
+    return 0;
   }
 
-  @JsonIgnore
-  public long getRemaining() {
-    return this.expire - System.currentTimeMillis();
+  public long getRemaining(User user) {
+    if (timeMap.get(user) != null) {
+      return timeMap.get(user) - System.currentTimeMillis();
+    }
+    return 0;
   }
 
-  @JsonIgnore
-  public boolean hasExpired() {
-    return System.currentTimeMillis() - this.expire >= 0;
+  public boolean hasExpired(User user) {
+    if (timeMap.get(user) != null) {
+      return System.currentTimeMillis() - timeMap.get(user) >= 0;
+    }
+    return true;
   }
 
-  @JsonIgnore
-  public String getTimeLeft() {
-    if (this.getRemaining() >= 60_000) {
-      return TimeUtil.millisToRoundedTime(this.getRemaining());
+  public String getTimeLeft(User user) {
+    if (this.getRemaining(user) >= 60_000) {
+      return TimeUtil.getRemainingFromMillis(this.getRemaining(user));
     } else {
-      return TimeUtil.millisToSeconds(this.getRemaining());
+      return TimeUtil.millisToSeconds(this.getRemaining(user));
     }
   }
 }

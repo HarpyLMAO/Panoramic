@@ -5,7 +5,8 @@ import java.util.stream.Collectors;
 import lombok.Getter;
 import me.harpylmao.Bot;
 import me.harpylmao.commands.command.CommandManager;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import me.harpylmao.managers.Panoramic;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -17,8 +18,9 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
+@CommandParams(name = "help", usage = "usage")
 @Getter
-public class DefaultHelpCommand implements BaseCommand {
+public class DefaultHelpCommand implements Command {
 
   @Override
   public void execute(
@@ -36,6 +38,9 @@ public class DefaultHelpCommand implements BaseCommand {
         "\n" +
         "**Main help:** If you want know all main commands\n" +
         "please select _Main help_ in the options.\n" +
+        "\n" +
+        "**Fun help:** If you want know all fun commands\n" +
+        "please select _Fun help_ in the options.\n" +
         "\n" +
         "**Music help:** If you want know all about music bot\n" +
         "choose in the menu _Music help_.\n" +
@@ -59,6 +64,7 @@ public class DefaultHelpCommand implements BaseCommand {
       .setPlaceholder("Choose what help you need")
       .setRequiredRange(1, 1)
       .addOption("Main help", "main", "Shows you all main help of the bot.")
+      .addOption("Fun Help", "fun", "Shows you all fun commands of the bot.")
       .addOption(
         "Music help",
         "music",
@@ -70,16 +76,6 @@ public class DefaultHelpCommand implements BaseCommand {
         "Shows you all commands about the cars and races."
       )
       .build();
-  }
-
-  @Override
-  public String usage() {
-    return "usage";
-  }
-
-  @Override
-  public String getName() {
-    return "help";
   }
 
   public static class HelpCommandListeners extends ListenerAdapter {
@@ -129,6 +125,19 @@ public class DefaultHelpCommand implements BaseCommand {
 
             carsMessage.setActionRow(getSelectionMenu()).queue();
           }
+          case "fun" -> {
+            if (this.funCommands().isEmpty()) return;
+            MessageAction carsMessage = event
+              .getTextChannel()
+              .sendMessageEmbeds(
+                new EmbedBuilder()
+                  .setColor(panoramic.getColorColored())
+                  .setDescription(this.funCommands())
+                  .build()
+              );
+
+            carsMessage.setActionRow(getSelectionMenu()).queue();
+          }
         }
       }
     }
@@ -137,8 +146,16 @@ public class DefaultHelpCommand implements BaseCommand {
       return CommandManager.INSTANCE
         .getCommands()
         .stream()
-        .filter(baseCommand -> baseCommand.category().equalsIgnoreCase("main"))
-        .map(s -> " ➥ `" + s.getName() + "`")
+        .filter(baseCommand ->
+          CommandManager.INSTANCE
+            .getParamsMap()
+            .get(baseCommand)
+            .category()
+            .equalsIgnoreCase("main")
+        )
+        .map(s ->
+          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
+        )
         .collect(Collectors.joining("\n"));
     }
 
@@ -146,8 +163,16 @@ public class DefaultHelpCommand implements BaseCommand {
       return CommandManager.INSTANCE
         .getCommands()
         .stream()
-        .filter(baseCommand -> baseCommand.category().equalsIgnoreCase("music"))
-        .map(s -> " ➥ `" + s.getName() + "`")
+        .filter(baseCommand ->
+          CommandManager.INSTANCE
+            .getParamsMap()
+            .get(baseCommand)
+            .category()
+            .equalsIgnoreCase("music")
+        )
+        .map(s ->
+          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
+        )
         .collect(Collectors.joining("\n"));
     }
 
@@ -155,8 +180,33 @@ public class DefaultHelpCommand implements BaseCommand {
       return CommandManager.INSTANCE
         .getCommands()
         .stream()
-        .filter(baseCommand -> baseCommand.category().equalsIgnoreCase("cars"))
-        .map(s -> " ➥ `" + s.getName() + "`")
+        .filter(baseCommand ->
+          CommandManager.INSTANCE
+            .getParamsMap()
+            .get(baseCommand)
+            .category()
+            .equalsIgnoreCase("cars")
+        )
+        .map(s ->
+          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
+        )
+        .collect(Collectors.joining("\n"));
+    }
+
+    private String funCommands() {
+      return CommandManager.INSTANCE
+        .getCommands()
+        .stream()
+        .filter(baseCommand ->
+          CommandManager.INSTANCE
+            .getParamsMap()
+            .get(baseCommand)
+            .category()
+            .equalsIgnoreCase("fun")
+        )
+        .map(s ->
+          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
+        )
         .collect(Collectors.joining("\n"));
     }
   }

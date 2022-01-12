@@ -3,14 +3,16 @@ package me.harpylmao.commands.music;
 import me.harpylmao.Bot;
 import me.harpylmao.audio.MusicManager;
 import me.harpylmao.audio.TrackScheduler;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class ResumeCommand implements BaseCommand {
+@CommandParams(name = "resume", category = "music")
+public class ResumeCommand implements Command {
 
   @Override
   public void execute(
@@ -69,20 +71,5 @@ public class ResumeCommand implements BaseCommand {
           .build()
       )
       .queue();
-  }
-
-  @Override
-  public String usage() {
-    return "/resume";
-  }
-
-  @Override
-  public String getName() {
-    return "resume";
-  }
-
-  @Override
-  public String category() {
-    return "music";
   }
 }

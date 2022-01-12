@@ -3,7 +3,7 @@ package me.harpylmao.commands.command.objects;
 import java.util.Arrays;
 import lombok.Getter;
 import me.harpylmao.commands.command.CommandManager;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
 
 /**
  * Created by Ryzeon Project: JDA-CommandAPI Date: 06/06/2021 @ 21:24 Twitter: @Ryzeon_ 😎 Github:
@@ -12,7 +12,7 @@ import me.harpylmao.commands.command.interfaces.BaseCommand;
 public class CommandPreConstructor {
 
   @Getter
-  private final BaseCommand baseCommand;
+  private final Command command;
 
   @Getter
   private final String label;
@@ -30,7 +30,7 @@ public class CommandPreConstructor {
       .split("\\s+");
     this.label = argsWithOutPrefix[0].toLowerCase();
 
-    this.baseCommand = commandManager.getCommandByNameOrAlias(label);
+    this.command = commandManager.getCommandByNameOrAlias(label);
     this.args =
       Arrays.copyOfRange(argsWithOutPrefix, 1, argsWithOutPrefix.length);
   }

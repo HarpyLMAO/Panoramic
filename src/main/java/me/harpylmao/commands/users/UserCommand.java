@@ -3,7 +3,8 @@ package me.harpylmao.commands.users;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import me.harpylmao.Bot;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import me.harpylmao.managers.users.User;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -17,7 +18,18 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
     Project: Panoramic
     31/12/2021 23
 */
-public class UserCommand implements BaseCommand {
+
+@CommandParams(
+  name = "user",
+  usage = """
+                **Usage:**
+                    - p.user | for see your user profile
+                    - p.user <user tag> | for see other user profile
+                """,
+  category = "main",
+  cooldown = 20_000
+)
+public class UserCommand implements Command {
 
   @Override
   public void execute(
@@ -77,24 +89,5 @@ public class UserCommand implements BaseCommand {
         .setFooter(formatter.format(date));
       event.getMessage().reply(targetProfileEmbed.build()).queue();
     }
-  }
-
-  @Override
-  public String usage() {
-    return """
-                **Usage:**
-                    - p.user | for see your user profile
-                    - p.user <user tag> | for see other user profile
-                """;
-  }
-
-  @Override
-  public String getName() {
-    return "user";
-  }
-
-  @Override
-  public String category() {
-    return "main";
   }
 }

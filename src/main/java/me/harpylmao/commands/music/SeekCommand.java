@@ -3,14 +3,16 @@ package me.harpylmao.commands.music;
 import me.harpylmao.Bot;
 import me.harpylmao.audio.MusicManager;
 import me.harpylmao.audio.TrackScheduler;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class SeekCommand implements BaseCommand {
+@CommandParams(name = "seek", category = "music")
+public class SeekCommand implements Command {
 
   @Override
   public void execute(
@@ -89,20 +91,5 @@ public class SeekCommand implements BaseCommand {
           .build()
       )
       .queue();
-  }
-
-  @Override
-  public String usage() {
-    return "/seek (time [120 = 2 minutes])";
-  }
-
-  @Override
-  public String getName() {
-    return "seek";
-  }
-
-  @Override
-  public String category() {
-    return "music";
   }
 }

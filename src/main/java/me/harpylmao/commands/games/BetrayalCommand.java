@@ -5,20 +5,21 @@ import me.harpylmao.commands.command.interfaces.Command;
 import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import me.harpylmao.utils.Utils;
-import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 @CommandParams(
-  name = "youtube",
+  name = "betrayal",
   category = "fun",
-  aliases = { "yt" },
   usage = """
                 **USAGE:**
-                    - p.youtube | watch youtube videos together
+                    - p.betrayal
                 """
 )
-public class YoutubeWatchTogetherCommand implements Command {
+public class BetrayalCommand implements Command {
 
   @Override
   public void execute(
@@ -39,10 +40,10 @@ public class YoutubeWatchTogetherCommand implements Command {
       voiceChannel
         .createInvite()
         .setTemporary(false)
-        .setTargetApplication("880218394199220334")
+        .setTargetApplication("773336526917861400")
         .queue(invite -> {
           Utils
-            .sendGameMessage(invite.getUrl(), "Youtube Together", textChannel)
+            .sendGameMessage(invite.getUrl(), "Betrayal", textChannel)
             .queue(message -> {
               Bot
                 .getInstance()

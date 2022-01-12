@@ -1,14 +1,16 @@
 package me.harpylmao.commands.music;
 
 import me.harpylmao.Bot;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class SkipCommand implements BaseCommand {
+@CommandParams(name = "skip", category = "music")
+public class SkipCommand implements Command {
 
   @Override
   public void execute(
@@ -88,20 +90,5 @@ public class SkipCommand implements BaseCommand {
       .getGuildAudio(event.getGuild())
       .getTrackScheduler()
       .skip();
-  }
-
-  @Override
-  public String category() {
-    return "music";
-  }
-
-  @Override
-  public String usage() {
-    return "USAGE: \n" + " - /skip";
-  }
-
-  @Override
-  public String getName() {
-    return "skip";
   }
 }

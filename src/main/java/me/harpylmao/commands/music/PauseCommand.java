@@ -2,14 +2,16 @@ package me.harpylmao.commands.music;
 
 import me.harpylmao.Bot;
 import me.harpylmao.audio.TrackScheduler;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class PauseCommand implements BaseCommand {
+@CommandParams(name = "pause", category = "music")
+public class PauseCommand implements Command {
 
   @Override
   public void execute(
@@ -53,20 +55,5 @@ public class PauseCommand implements BaseCommand {
           .build()
       )
       .queue();
-  }
-
-  @Override
-  public String category() {
-    return "music";
-  }
-
-  @Override
-  public String usage() {
-    return "USAGE: \n" + " - /pause";
-  }
-
-  @Override
-  public String getName() {
-    return "pause";
   }
 }

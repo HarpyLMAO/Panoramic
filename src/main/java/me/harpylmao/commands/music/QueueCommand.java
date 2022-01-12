@@ -4,14 +4,16 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import java.util.List;
 import me.harpylmao.Bot;
 import me.harpylmao.audio.MusicManager;
-import me.harpylmao.commands.command.interfaces.BaseCommand;
+import me.harpylmao.commands.command.interfaces.Command;
+import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class QueueCommand implements BaseCommand {
+@CommandParams(name = "queue", category = "music")
+public class QueueCommand implements Command {
 
   @Override
   public void execute(
@@ -98,20 +100,5 @@ public class QueueCommand implements BaseCommand {
 
     textChannel.sendMessageEmbeds(embed.build()).queue();
     return;
-  }
-
-  @Override
-  public String category() {
-    return "music";
-  }
-
-  @Override
-  public String usage() {
-    return "USAGE: \n" + " - /queue [song name]/[song/playlist link]";
-  }
-
-  @Override
-  public String getName() {
-    return "queue";
   }
 }
