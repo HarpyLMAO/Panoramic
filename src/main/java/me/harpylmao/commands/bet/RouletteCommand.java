@@ -26,7 +26,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
                 **Usage:**
                     - p.roulette <amount> | If your amount is 10 you have the probability to duplicate or lost all.
                 """,
-  cooldown = 18_000_000
+  cooldown = 60_000
 )
 public class RouletteCommand implements Command {
 
@@ -63,9 +63,7 @@ public class RouletteCommand implements Command {
           new EmbedBuilder()
             .setColor(Bot.getInstance().getPanoramic().getColorColored())
             .setDescription(
-              "You have bet on roulette and you have won double! (" +
-              winnedAmount +
-              ")"
+              "You have bet on roulette and you have won double! (" + winnedAmount + ")"
             )
             .build()
         )
@@ -86,5 +84,6 @@ public class RouletteCommand implements Command {
         )
         .queue();
     }
+    Bot.getInstance().getUserManager().getUserObjectRepository().save(user);
   }
 }

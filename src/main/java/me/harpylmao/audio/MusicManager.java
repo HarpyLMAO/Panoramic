@@ -61,9 +61,7 @@ public class MusicManager {
     this.playerManager.registerSourceManager(new GetyarnAudioSourceManager());
     this.playerManager.registerSourceManager(new YoutubeAudioSourceManager());
     this.playerManager.registerSourceManager(new BandcampAudioSourceManager());
-    this.playerManager.registerSourceManager(
-        new TwitchStreamAudioSourceManager()
-      );
+    this.playerManager.registerSourceManager(new TwitchStreamAudioSourceManager());
     this.playerManager.registerSourceManager(
         SoundCloudAudioSourceManager.createDefault()
       );
@@ -81,10 +79,7 @@ public class MusicManager {
     return this.guildMusicManager.computeIfAbsent(
         guild.getIdLong(),
         guildAudio -> {
-          GuildMusicManager guildMusicManager = new GuildMusicManager(
-            this,
-            guild
-          );
+          GuildMusicManager guildMusicManager = new GuildMusicManager(this, guild);
 
           guild
             .getAudioManager()
@@ -154,11 +149,7 @@ public class MusicManager {
    * @param trackURL    The URL of the track you want to play.
    * @param sendMessage Sends message if true.
    */
-  public void loadAndPlay(
-    CommandEvent event,
-    String trackURL,
-    boolean sendMessage
-  ) {
+  public void loadAndPlay(CommandEvent event, String trackURL, boolean sendMessage) {
     GuildMusicManager musicManager = getGuildAudio(event.getGuild());
     Member member = event.getMember();
 
@@ -220,9 +211,7 @@ public class MusicManager {
           new EmbedBuilder()
             .setColor(Bot.getInstance().getPanoramic().getColorColored())
             .setDescription(
-              "Loading playlist `" +
-              finalTrackURL.replace("Spotify.PLAYLIST ", "") +
-              "`"
+              "Loading playlist `" + finalTrackURL.replace("Spotify.PLAYLIST ", "") + "`"
             )
             .build()
         )
@@ -238,9 +227,7 @@ public class MusicManager {
           new EmbedBuilder()
             .setColor(Bot.getInstance().getPanoramic().getColorColored())
             .setDescription(
-              "Loading album `" +
-              finalTrackURL.replace("Spotify.ALBUM ", "") +
-              "`"
+              "Loading album `" + finalTrackURL.replace("Spotify.ALBUM ", "") + "`"
             )
             .build()
         )
@@ -271,9 +258,7 @@ public class MusicManager {
 
     @Override
     public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
-      Member eustaquioMember = event
-        .getGuild()
-        .getMember(event.getJDA().getSelfUser());
+      Member eustaquioMember = event.getGuild().getMember(event.getJDA().getSelfUser());
 
       if (event.getMember().equals(eustaquioMember)) {
         eustaquioMember.deafen(true).queue();
@@ -281,12 +266,8 @@ public class MusicManager {
     }
 
     @Override
-    public void onGuildVoiceGuildDeafen(
-      @NotNull GuildVoiceGuildDeafenEvent event
-    ) {
-      Member eustaquioMember = event
-        .getGuild()
-        .getMember(event.getJDA().getSelfUser());
+    public void onGuildVoiceGuildDeafen(@NotNull GuildVoiceGuildDeafenEvent event) {
+      Member eustaquioMember = event.getGuild().getMember(event.getJDA().getSelfUser());
 
       if (event.getMember().equals(eustaquioMember)) {
         if (event.isGuildDeafened()) return;

@@ -124,9 +124,7 @@ public class BassBoostCommand implements Command {
       .sendMessageEmbeds(
         new EmbedBuilder()
           .setColor(Bot.getInstance().getPanoramic().getColorColored())
-          .setDescription(
-            "Bassboost has been applied, at the level " + input + "%."
-          )
+          .setDescription("Bassboost has been applied, at the level " + input + "%.")
           .build()
       )
       .queue();

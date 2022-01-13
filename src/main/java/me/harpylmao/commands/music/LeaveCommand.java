@@ -37,10 +37,7 @@ public class LeaveCommand implements Command {
       return;
     }
 
-    Bot
-      .getInstance()
-      .getGuildAudioManager()
-      .leaveVoiceChannel(event.getGuild());
+    Bot.getInstance().getGuildAudioManager().leaveVoiceChannel(event.getGuild());
     textChannel
       .sendMessageEmbeds(
         new EmbedBuilder()

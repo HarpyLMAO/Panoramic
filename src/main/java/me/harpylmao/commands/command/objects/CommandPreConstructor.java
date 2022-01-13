@@ -25,13 +25,10 @@ public class CommandPreConstructor {
     String prefix,
     CommandManager commandManager
   ) {
-    String[] argsWithOutPrefix = rawMessage
-      .replaceFirst(prefix, "")
-      .split("\\s+");
+    String[] argsWithOutPrefix = rawMessage.replaceFirst(prefix, "").split("\\s+");
     this.label = argsWithOutPrefix[0].toLowerCase();
 
     this.command = commandManager.getCommandByNameOrAlias(label);
-    this.args =
-      Arrays.copyOfRange(argsWithOutPrefix, 1, argsWithOutPrefix.length);
+    this.args = Arrays.copyOfRange(argsWithOutPrefix, 1, argsWithOutPrefix.length);
   }
 }

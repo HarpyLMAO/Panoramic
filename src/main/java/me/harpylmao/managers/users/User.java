@@ -77,9 +77,7 @@ public class User implements Model {
       if (user == null) {
         user = new User(event.getMember().getId());
         Bot.getInstance().saveUser(user);
-        System.out.println(
-          "user created: " + event.getMember().getUser().getName()
-        );
+        System.out.println("user created: " + event.getMember().getUser().getName());
       }
     }
   }

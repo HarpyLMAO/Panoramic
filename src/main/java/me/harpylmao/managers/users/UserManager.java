@@ -19,10 +19,7 @@ public class UserManager {
   private final ObjectRepository<User> userObjectRepository;
 
   public UserManager(MongoDatabase mongoDatabase) {
-    MongoCollection<User> collection = mongoDatabase.getCollection(
-      "users",
-      User.class
-    );
+    MongoCollection<User> collection = mongoDatabase.getCollection("users", User.class);
     this.userObjectRepository = new MongoRepositoryModel<>(collection);
   }
 }

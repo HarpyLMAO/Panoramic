@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import me.harpylmao.commands.command.handler.CommandHandler;
 import me.harpylmao.commands.command.interfaces.Command;
@@ -57,9 +56,7 @@ public class CommandManager {
           if (clazz.getAnnotation(CommandParams.class) == null) {
             throw new Exception("No params found on " + clazz.getName());
           } else {
-            CommandParams commandParams = clazz.getAnnotation(
-              CommandParams.class
-            );
+            CommandParams commandParams = clazz.getAnnotation(CommandParams.class);
             commands.add(command);
             paramsMap.put(command, commandParams);
             System.out.println(
@@ -73,9 +70,7 @@ public class CommandManager {
         }
       });
     System.out.println(
-      "[Panoramic] -> " +
-      commands.size() +
-      " of commands registereds successfully."
+      "[Panoramic] -> " + commands.size() + " of commands registereds successfully."
     );
   }
 

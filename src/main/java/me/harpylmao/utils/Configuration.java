@@ -37,9 +37,7 @@ public final class Configuration {
     "yyyy-MM-dd HH:mm:ss"
   );
   public static final SimpleDateFormat TIME = new SimpleDateFormat("HH:mm:ss");
-  public static final SimpleDateFormat DATE = new SimpleDateFormat(
-    "yyyy-MM-dd"
-  );
+  public static final SimpleDateFormat DATE = new SimpleDateFormat("yyyy-MM-dd");
 
   private static final char SEPARATOR = '.';
   final Map<String, Object> self;
@@ -80,9 +78,7 @@ public final class Configuration {
     this.autosave = autosave;
 
     for (Map.Entry<?, ?> entry : map.entrySet()) {
-      String key = (entry.getKey() == null)
-        ? "null"
-        : entry.getKey().toString();
+      String key = (entry.getKey() == null) ? "null" : entry.getKey().toString();
 
       if (entry.getValue() instanceof Map) {
         self.put(
@@ -118,18 +114,8 @@ public final class Configuration {
    * @param defaultIS  The InputStream of the default configuration
    * @param autosave   Set this to true to automatically save this configuration to disk when it's modified
    */
-  public Configuration(
-    File configFile,
-    InputStream defaultIS,
-    boolean autosave
-  ) {
-    this(
-      new LinkedHashMap<String, Object>(),
-      null,
-      configFile,
-      defaultIS,
-      autosave
-    );
+  public Configuration(File configFile, InputStream defaultIS, boolean autosave) {
+    this(new LinkedHashMap<String, Object>(), null, configFile, defaultIS, autosave);
   }
 
   /**
@@ -184,9 +170,7 @@ public final class Configuration {
     if (map == null) map = new LinkedHashMap<>();
 
     for (Map.Entry<?, ?> entry : map.entrySet()) {
-      String key = (entry.getKey() == null)
-        ? "null"
-        : entry.getKey().toString();
+      String key = (entry.getKey() == null) ? "null" : entry.getKey().toString();
 
       if (entry.getValue() instanceof Map) {
         self.put(
@@ -268,10 +252,7 @@ public final class Configuration {
     String root = path.substring(0, index);
     Object section = self.get(root);
     if (section == null) {
-      section =
-        new Configuration(
-          (defaults == null) ? null : defaults.getSection(root)
-        );
+      section = new Configuration((defaults == null) ? null : defaults.getSection(root));
       self.put(root, section);
     }
 
@@ -408,9 +389,7 @@ public final class Configuration {
       path,
       (def instanceof Configuration)
         ? def
-        : new Configuration(
-          (defaults == null) ? null : defaults.getSection(path)
-        )
+        : new Configuration((defaults == null) ? null : defaults.getSection(path))
     );
   }
 
@@ -431,10 +410,7 @@ public final class Configuration {
    */
   public byte getByte(String path) {
     Object def = getDefault(path);
-    return getByte(
-      path,
-      (def instanceof Number) ? ((Number) def).byteValue() : 0
-    );
+    return getByte(path, (def instanceof Number) ? ((Number) def).byteValue() : 0);
   }
 
   /**
@@ -475,10 +451,7 @@ public final class Configuration {
    */
   public short getShort(String path) {
     Object def = getDefault(path);
-    return getShort(
-      path,
-      (def instanceof Number) ? ((Number) def).shortValue() : 0
-    );
+    return getShort(path, (def instanceof Number) ? ((Number) def).shortValue() : 0);
   }
 
   /**
@@ -519,10 +492,7 @@ public final class Configuration {
    */
   public int getInt(String path) {
     Object def = getDefault(path);
-    return getInt(
-      path,
-      (def instanceof Number) ? ((Number) def).intValue() : 0
-    );
+    return getInt(path, (def instanceof Number) ? ((Number) def).intValue() : 0);
   }
 
   /**
@@ -563,10 +533,7 @@ public final class Configuration {
    */
   public long getLong(String path) {
     Object def = getDefault(path);
-    return getLong(
-      path,
-      (def instanceof Number) ? ((Number) def).longValue() : 0
-    );
+    return getLong(path, (def instanceof Number) ? ((Number) def).longValue() : 0);
   }
 
   /**
@@ -607,10 +574,7 @@ public final class Configuration {
    */
   public float getFloat(String path) {
     Object def = getDefault(path);
-    return getFloat(
-      path,
-      (def instanceof Number) ? ((Number) def).floatValue() : 0
-    );
+    return getFloat(path, (def instanceof Number) ? ((Number) def).floatValue() : 0);
   }
 
   /**
@@ -651,10 +615,7 @@ public final class Configuration {
    */
   public double getDouble(String path) {
     Object def = getDefault(path);
-    return getDouble(
-      path,
-      (def instanceof Number) ? ((Number) def).doubleValue() : 0
-    );
+    return getDouble(path, (def instanceof Number) ? ((Number) def).doubleValue() : 0);
   }
 
   /**
@@ -736,10 +697,7 @@ public final class Configuration {
    */
   public char getChar(String path) {
     Object def = getDefault(path);
-    return getChar(
-      path,
-      (def instanceof Character) ? (Character) def : '\u0000'
-    );
+    return getChar(path, (def instanceof Character) ? (Character) def : '\u0000');
   }
 
   /**

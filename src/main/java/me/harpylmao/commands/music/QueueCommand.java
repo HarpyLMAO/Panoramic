@@ -65,8 +65,7 @@ public class QueueCommand implements Command {
       msPos = msPos % 60000;
       int secPos = (int) Math.floor((float) msPos / 1000f);
       String length = minPos + ":" + ((secPos < 10) ? "0" + secPos : secPos);
-      String song =
-        "[" + track.getInfo().title + "](" + track.getInfo().uri + ")";
+      String song = "[" + track.getInfo().title + "](" + track.getInfo().uri + ")";
       if (i == 0) {
         description += "__Now Playing:__";
       } else if (i == 1) {

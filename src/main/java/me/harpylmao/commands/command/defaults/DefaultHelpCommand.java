@@ -65,16 +65,8 @@ public class DefaultHelpCommand implements Command {
       .setRequiredRange(1, 1)
       .addOption("Main help", "main", "Shows you all main help of the bot.")
       .addOption("Fun Help", "fun", "Shows you all fun commands of the bot.")
-      .addOption(
-        "Music help",
-        "music",
-        "Shows you all commands of the music bot."
-      )
-      .addOption(
-        "Cars help",
-        "cars",
-        "Shows you all commands about the cars and races."
-      )
+      .addOption("Music help", "music", "Shows you all commands of the music bot.")
+      .addOption("Cars help", "cars", "Shows you all commands about the cars and races.")
       .build();
   }
 
@@ -153,9 +145,7 @@ public class DefaultHelpCommand implements Command {
             .category()
             .equalsIgnoreCase("main")
         )
-        .map(s ->
-          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
-        )
+        .map(s -> " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`")
         .collect(Collectors.joining("\n"));
     }
 
@@ -170,9 +160,7 @@ public class DefaultHelpCommand implements Command {
             .category()
             .equalsIgnoreCase("music")
         )
-        .map(s ->
-          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
-        )
+        .map(s -> " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`")
         .collect(Collectors.joining("\n"));
     }
 
@@ -187,9 +175,7 @@ public class DefaultHelpCommand implements Command {
             .category()
             .equalsIgnoreCase("cars")
         )
-        .map(s ->
-          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
-        )
+        .map(s -> " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`")
         .collect(Collectors.joining("\n"));
     }
 
@@ -204,9 +190,7 @@ public class DefaultHelpCommand implements Command {
             .category()
             .equalsIgnoreCase("fun")
         )
-        .map(s ->
-          " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`"
-        )
+        .map(s -> " ➥ `" + CommandManager.INSTANCE.getParamsMap().get(s).name() + "`")
         .collect(Collectors.joining("\n"));
     }
   }

@@ -31,9 +31,7 @@ public class Panoramic implements Model {
     this.id = id;
   }
 
-  @ConstructorProperties(
-    { "id", "color", "ticketOpenerId", "ticketLogsChannelId" }
-  )
+  @ConstructorProperties({ "id", "color", "ticketOpenerId", "ticketLogsChannelId" })
   public Panoramic(
     String id,
     String color,

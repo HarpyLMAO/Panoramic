@@ -26,9 +26,7 @@ public class Category {
   public Set<Command> getCommands() {
     Set<Command> commands = new HashSet<>();
     for (Command command : CommandManager.INSTANCE.getCommands()) {
-      CommandParams commandParams = CommandManager.INSTANCE
-        .getParamsMap()
-        .get(command);
+      CommandParams commandParams = CommandManager.INSTANCE.getParamsMap().get(command);
       if (!commandParams.category().equalsIgnoreCase(name)) continue;
       commands.add(command);
     }
@@ -44,9 +42,7 @@ public class Category {
 
   public static Set<Category> getCategories() {
     for (Command command : CommandManager.INSTANCE.getCommands()) {
-      CommandParams commandParams = CommandManager.INSTANCE
-        .getParamsMap()
-        .get(command);
+      CommandParams commandParams = CommandManager.INSTANCE.getParamsMap().get(command);
       if (getCategory(commandParams.category()) != null) continue;
       new Category(commandParams.category());
     }

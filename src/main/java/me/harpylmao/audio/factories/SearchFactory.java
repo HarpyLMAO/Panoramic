@@ -48,9 +48,7 @@ public class SearchFactory {
   }
 
   public String search() {
-    RequestType requestType = Objects.requireNonNull(
-      RequestType.getRequestType(search)
-    );
+    RequestType requestType = Objects.requireNonNull(RequestType.getRequestType(search));
 
     try {
       switch (requestType) {

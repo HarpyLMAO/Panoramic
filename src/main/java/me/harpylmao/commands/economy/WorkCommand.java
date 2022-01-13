@@ -7,7 +7,6 @@ import me.harpylmao.commands.command.interfaces.Command;
 import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import me.harpylmao.managers.users.User;
-import me.harpylmao.utils.Cooldown;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -49,9 +48,7 @@ public class WorkCommand implements Command {
           new EmbedBuilder()
             .setColor(Bot.getInstance().getPanoramic().getColorColored())
             .setDescription(
-              "You worked a part time, your salary received is " +
-              salary +
-              " 💵"
+              "You worked a part time, your salary received is " + salary + " 💵"
             )
             .build()
         )

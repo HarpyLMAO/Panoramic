@@ -11,8 +11,7 @@ import me.harpylmao.managers.model.Model;
  * all credits reserved
  */
 
-public class MongoRepositoryModel<O extends Model>
-  implements ObjectRepository<O> {
+public class MongoRepositoryModel<O extends Model> implements ObjectRepository<O> {
 
   private MongoCollection<O> collection;
 

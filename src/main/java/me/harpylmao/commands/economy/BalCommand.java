@@ -59,11 +59,10 @@ public class BalCommand implements Command {
               .getGuild()
               .retrieveMemberById(user.getId())
               .complete();
-
             user.setEconomy(user.getEconomy() + amount);
             event
               .getMessage()
-              .reply(
+              .replyEmbeds(
                 new EmbedBuilder()
                   .setColor(Bot.getInstance().getPanoramic().getColorColored())
                   .setDescription(
@@ -146,9 +145,7 @@ public class BalCommand implements Command {
               new EmbedBuilder()
                 .setColor(Bot.getInstance().getPanoramic().getColorColored())
                 .setDescription(
-                  "Economy of " +
-                  targetMember.getUser().getName() +
-                  "has been ."
+                  "Economy of " + targetMember.getUser().getName() + "has been ."
                 )
                 .build()
             )

@@ -58,10 +58,7 @@ public class ClearCommand implements Command {
       return;
     }
 
-    musicManager
-      .getGuildAudio(event.getGuild())
-      .getTrackScheduler()
-      .clearQueue();
+    musicManager.getGuildAudio(event.getGuild()).getTrackScheduler().clearQueue();
 
     textChannel
       .sendMessageEmbeds(

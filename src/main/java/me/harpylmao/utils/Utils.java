@@ -8,8 +8,19 @@ import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
 public class Utils {
 
-    public static MessageAction sendGameMessage(String url, String gameName, TextChannel textChannel) {
-        return textChannel.sendMessage("Click the button to play: " + gameName)
-                .setActionRow(Button.success("button:game:" + gameName,"Click here to join the game").withStyle(ButtonStyle.SUCCESS).withUrl(url).withEmoji(Emoji.fromUnicode("🎮")));
-    }
+  public static MessageAction sendGameMessage(
+    String url,
+    String gameName,
+    TextChannel textChannel
+  ) {
+    return textChannel
+      .sendMessage("Click the button to play: " + gameName)
+      .setActionRow(
+        Button
+          .success("button:game:" + gameName, "Click here to join the game")
+          .withStyle(ButtonStyle.SUCCESS)
+          .withUrl(url)
+          .withEmoji(Emoji.fromUnicode("🎮"))
+      );
+  }
 }

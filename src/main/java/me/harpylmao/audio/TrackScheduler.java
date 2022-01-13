@@ -51,9 +51,7 @@ public class TrackScheduler extends AudioEventAdapter {
    */
   public void queueSong(AudioTrack track) {
     this.trackQueue.add(track);
-    if (audioPlayer.getPlayingTrack() == null) audioPlayer.playTrack(
-      trackQueue.get(0)
-    );
+    if (audioPlayer.getPlayingTrack() == null) audioPlayer.playTrack(trackQueue.get(0));
   }
 
   /**
@@ -235,9 +233,7 @@ public class TrackScheduler extends AudioEventAdapter {
     EmbedBuilder builder = new EmbedBuilder()
       .setColor(Bot.getInstance().getPanoramic().getColorColored())
       .setTitle("Now Playing")
-      .setDescription(
-        "[" + track.getInfo().title + "](" + track.getInfo().uri + ")"
-      )
+      .setDescription("[" + track.getInfo().title + "](" + track.getInfo().uri + ")")
       .addField("Song Duration", MusicUtils.getDuration(track), true)
       .setThumbnail(MusicUtils.getThumbnail(track));
     builder.addField(
@@ -257,9 +253,7 @@ public class TrackScheduler extends AudioEventAdapter {
       .queue(
         (
           message ->
-            message
-              .delete()
-              .queueAfter(track.getDuration(), TimeUnit.MILLISECONDS)
+            message.delete().queueAfter(track.getDuration(), TimeUnit.MILLISECONDS)
         )
       );
   }
@@ -279,16 +273,16 @@ public class TrackScheduler extends AudioEventAdapter {
       this.addTrack(track.getInfo().uri, this.guild, false);
     } else if (this.loopQueue && endReason.mayStartNext) {
       this.addTrack(track.getInfo().uri, this.guild, true);
-    } else if (
-      endReason.mayStartNext && this.trackQueue.size() > 0
-    ) player.playTrack(this.trackQueue.get(0));
+    } else if (endReason.mayStartNext && this.trackQueue.size() > 0) player.playTrack(
+      this.trackQueue.get(0)
+    );
   }
 
   /**
    * Adds track and loads it.
    *
-   * @param name Name of Song.
-   * @param guild Guild.
+   * @param name      Name of Song.
+   * @param guild     Guild.
    * @param queueSong If song need's to be queued.
    */
   public void addTrack(String name, Guild guild, boolean queueSong) {
@@ -307,9 +301,7 @@ public class TrackScheduler extends AudioEventAdapter {
               scheduler.queueSong(audioTrack);
             }
             scheduler.getTrackQueue().add(0, audioTrack);
-            scheduler
-              .getAudioPlayer()
-              .playTrack(scheduler.getTrackQueue().get(0));
+            scheduler.getAudioPlayer().playTrack(scheduler.getTrackQueue().get(0));
           }
 
           @Override

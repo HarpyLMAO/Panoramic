@@ -40,10 +40,7 @@ public class AudioSoundLoadHandler implements AudioLoadResultHandler {
   @Override
   public void trackLoaded(AudioTrack audioTrack) {
     logger.info(
-      "Loaded Song: " +
-      audioTrack.getInfo().title +
-      " By: " +
-      audioTrack.getInfo().author
+      "Loaded Song: " + audioTrack.getInfo().title + " By: " + audioTrack.getInfo().author
     );
     if (!trackScheduler.getTrackQueue().isEmpty()) {
       EmbedBuilder embed = new EmbedBuilder()

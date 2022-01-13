@@ -1,7 +1,6 @@
 package me.harpylmao.managers.ticket;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.beans.ConstructorProperties;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +15,6 @@ import me.harpylmao.Bot;
 import me.harpylmao.managers.Panoramic;
 import me.harpylmao.managers.model.Model;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
@@ -72,9 +70,7 @@ public class Ticket implements Model {
     if (category == null) return;
 
     category
-      .createTextChannel(
-        ticketOwner.getUser().getName() + "-" + getRandomTicketNumber()
-      )
+      .createTextChannel(ticketOwner.getUser().getName() + "-" + getRandomTicketNumber())
       .setTopic("ticket")
       .queue(textChannel -> {
         textChannel
@@ -101,11 +97,11 @@ public class Ticket implements Model {
             .setColor(panoramic.getColorColored())
             .setDescription(
               """
-                                                Cuando tu ticket este
-                                                resuelto y te hayan ayudado
-                                                puedes cerrar tu ticket usando
-                                                el botón rojo.
-                                            """
+                                                  Cuando tu ticket este
+                                                  resuelto y te hayan ayudado
+                                                  puedes cerrar tu ticket usando
+                                                  el botón rojo.
+                                              """
             )
             .build()
         );
@@ -167,12 +163,12 @@ public class Ticket implements Model {
         .setColor(panoramic.getColorColored())
         .setDescription(
           """
-                                                Para crear un ticket
-                                                reacciona al boton verde del mensaje.
-                                                          
-                                                Por favor no le hagas tag a ningun miembro
-                                                del staff. En ese caso tomaremos medidas.
-                                        """
+                                            Para crear un ticket
+                                            reacciona al boton verde del mensaje.
+                                                      
+                                            Por favor no le hagas tag a ningun miembro
+                                            del staff. En ese caso tomaremos medidas.
+                                    """
         )
         .build()
     );
@@ -210,14 +206,9 @@ public class Ticket implements Model {
 
     @Override
     public void onButtonClick(ButtonClickEvent event) {
-      if (
-        event.getMessageId().equalsIgnoreCase(panoramic.getTicketOpenerId())
-      ) {
+      if (event.getMessageId().equalsIgnoreCase(panoramic.getTicketOpenerId())) {
         event.getInteraction().deferEdit().complete();
-        createTicket(
-          event.getMember(),
-          Objects.requireNonNull(event.getGuild())
-        );
+        createTicket(event.getMember(), Objects.requireNonNull(event.getGuild()));
       }
     }
 
@@ -227,23 +218,17 @@ public class Ticket implements Model {
       Member member = event.getMember();
       if (member.getUser().isBot()) return;
       if (event.getMessage().getTextChannel().getTopic() != null) {
-        if (
-          event.getMessage().getTextChannel().getTopic().startsWith("ticket")
-        ) {
+        if (event.getMessage().getTextChannel().getTopic().startsWith("ticket")) {
           if (
             event
               .getMessage()
               .getTextChannel()
               .getName()
-              .startsWith(
-                member.getUser().getName().toLowerCase().replace(" ", "-")
-              )
+              .startsWith(member.getUser().getName().toLowerCase().replace(" ", "-"))
           ) {
             try {
               File log = new File(
-                member.getUser().getName() +
-                member.getUser().getDiscriminator() +
-                ".txt"
+                member.getUser().getName() + member.getUser().getDiscriminator() + ".txt"
               );
               if (!log.exists()) {
                 System.out.println("We had to make a new file.");

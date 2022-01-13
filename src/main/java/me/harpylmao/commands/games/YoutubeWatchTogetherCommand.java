@@ -5,7 +5,9 @@ import me.harpylmao.commands.command.interfaces.Command;
 import me.harpylmao.commands.command.interfaces.CommandParams;
 import me.harpylmao.commands.command.objects.CommandEvent;
 import me.harpylmao.utils.Utils;
-import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 

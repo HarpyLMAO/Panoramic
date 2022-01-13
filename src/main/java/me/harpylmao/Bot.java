@@ -52,20 +52,15 @@ public class Bot {
 
     this.mongoConnector = new MongoConnector(this);
     mongoConnector.load();
-    this.panoramicManager =
-      new PanoramicManager(this.mongoConnector.getMongoDatabase());
+    this.panoramicManager = new PanoramicManager(this.mongoConnector.getMongoDatabase());
     this.panoramic =
-      this.panoramicManager.getPanoramicObjectRepository()
-        .find(this.getPanoramicId());
-    this.ticketManager =
-      new TicketManager(this.mongoConnector.getMongoDatabase());
+      this.panoramicManager.getPanoramicObjectRepository().find(this.getPanoramicId());
+    this.ticketManager = new TicketManager(this.mongoConnector.getMongoDatabase());
     this.userManager = new UserManager(this.mongoConnector.getMongoDatabase());
     this.guildAudioManager = new MusicManager(this);
 
     JDABuilder jdaBuilder = JDABuilder
-      .createDefault(
-        "OTE3ODYzODEwOTMxNTExMzM3.Ya-5SQ.Abiog6-O3Lbbb3MzPeHZZ4_FQmQ"
-      )
+      .createDefault("OTE3ODYzODEwOTMxNTExMzM3.Ya-5SQ.Abiog6-O3Lbbb3MzPeHZZ4_FQmQ")
       .setActivity(Activity.playing("Follandome a la puta de tu madre :)"))
       .setChunkingFilter(ChunkingFilter.ALL)
       .enableCache(CacheFlag.VOICE_STATE)
@@ -114,8 +109,7 @@ public class Bot {
     this.userManager.getUserObjectRepository().save(user);
   }
 
-  public static void main(String[] args)
-    throws LoginException, InterruptedException {
+  public static void main(String[] args) throws LoginException, InterruptedException {
     new Bot();
   }
 

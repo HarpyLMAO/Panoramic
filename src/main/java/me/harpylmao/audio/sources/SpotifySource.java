@@ -33,8 +33,7 @@ public class SpotifySource {
     .setClientSecret(CLIENT_SECRET)
     .build();
 
-  public SpotifySource()
-    throws IOException, ParseException, SpotifyWebApiException {
+  public SpotifySource() throws IOException, ParseException, SpotifyWebApiException {
     ClientCredentialsRequest clientCredentialsRequest = spotifyApi
       .clientCredentials()
       .build();
@@ -139,8 +138,8 @@ public class SpotifySource {
    *
    * @param id ID of album.
    * @return List of album song's in song name + artist name.
-   * @throws IOException If an I/O error occurs while creating the input stream.
-   * @throws ParseException String parsing error.
+   * @throws IOException            If an I/O error occurs while creating the input stream.
+   * @throws ParseException         String parsing error.
    * @throws SpotifyWebApiException The Web API returned an error further specified in this exception's root cause.
    */
   public List<String> getAlbum(String id)
@@ -161,8 +160,8 @@ public class SpotifySource {
    *
    * @param id ID of playlist
    * @return Playlist name.
-   * @throws IOException If an I/O error occurs while creating the input stream.
-   * @throws ParseException String parsing error.
+   * @throws IOException            If an I/O error occurs while creating the input stream.
+   * @throws ParseException         String parsing error.
    * @throws SpotifyWebApiException The Web API returned an error further specified in this exception's root cause.
    */
   public String getPlayListName(String id)
@@ -175,8 +174,8 @@ public class SpotifySource {
    *
    * @param id ID of album.
    * @return Album name.
-   * @throws IOException If an I/O error occurs while creating the input stream.
-   * @throws ParseException String parsing error.
+   * @throws IOException            If an I/O error occurs while creating the input stream.
+   * @throws ParseException         String parsing error.
    * @throws SpotifyWebApiException The Web API returned an error further specified in this exception's root cause.
    */
   public String getAlbumName(String id)
@@ -189,8 +188,8 @@ public class SpotifySource {
    *
    * @param url URL to get track.
    * @return Song to search
-   * @throws IOException If an I/O error occurs while creating the input stream.
-   * @throws ParseException String parsing error.
+   * @throws IOException            If an I/O error occurs while creating the input stream.
+   * @throws ParseException         String parsing error.
    * @throws SpotifyWebApiException The Web API returned an error further specified in this exception's root cause.
    */
   public String getTrackNameAndArtist(String url)

@@ -42,9 +42,6 @@ public class LoopCommand implements Command {
       return;
     }
 
-    musicManager
-      .getGuildAudio(event.getGuild())
-      .getTrackScheduler()
-      .toggleLoop(command);
+    musicManager.getGuildAudio(event.getGuild()).getTrackScheduler().toggleLoop(command);
   }
 }

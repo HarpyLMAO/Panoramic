@@ -58,9 +58,7 @@ public class CommandHandler extends ListenerAdapter {
         );
 
         if (commandParams.permissions().length > 0) {
-          List<Permission> permissions = Arrays.asList(
-            commandParams.permissions()
-          );
+          List<Permission> permissions = Arrays.asList(commandParams.permissions());
           if (event.getMember().getPermissions().containsAll(permissions)) {
             commandPreConstructor
               .getCommand()
@@ -94,8 +92,7 @@ public class CommandHandler extends ListenerAdapter {
         commandManager
           .getLogger()
           .warning(
-            "An error occurred while executing " +
-            commandPreConstructor.getLabel()
+            "An error occurred while executing " + commandPreConstructor.getLabel()
           );
         event.getMessage().reply(commandManager.getErrorMessage()).queue();
         exception.printStackTrace();
